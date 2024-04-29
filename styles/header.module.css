@@ -1,0 +1,44 @@
+.fix {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 5em;
+  z-index: 9999999;
+}
+
+.header {
+  width: 100em;
+  background-color: #f1e8b8;
+  height: 5em;
+  display: inline-flex;
+  padding-top: 1.75vh;
+  padding-bottom: 1.75vh;
+}
+
+.image {
+  margin-left: 5vw;
+}
+
+.title {
+  color: #cd2323;
+  font-family: "Roboto Flex";
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 2vw;
+  margin-top: 1.25vh;
+}
+
+.manu_selection {
+  display: inline-flex;
+  margin-left: 30vw;
+}
+
+.types {
+  font-family: "Roboto Flex";
+  font-size: 22px;
+  color: #191919;
+  margin-left: 5vw;
+  font-weight: 700;
+  margin-top: 1.25vh;
+}

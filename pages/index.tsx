@@ -43,7 +43,7 @@ export default function Home() {
   const [teacher, setTeacher] = useState("");
   const [tutor, setTutor] = useState("");
   const [support, setSupport] = useState("");
-  const [isSubmit, setIsSubmit] = useState(true);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleSubmit = (event: any) => {
     event.preventDefault(name, subject, course, teacher, tutor, support);

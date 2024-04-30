@@ -3,25 +3,42 @@ import styles from "@/styles/Home.module.css";
 import Cell from "@/components/cell";
 import Submit from "@/components/submit";
 import SelectCell from "@/components/select_cell";
+import Copyright from "@/components/copyright";
 
 export default function Home() {
   const handleSubmit = (event: any) => {
-    // event.preventDefault(props.user_uid, buyShares, sellShares);
     console.log("submitted");
   };
 
-  const input_teachers = {
-    "1": "Congleton",
-    "2": "D. Lewis",
-    "3": "M. Lewis",
-    "4": "Spezzano",
-    "5": "Vaughters",
-    // <option value="congleton">Congleton</option>
-    // <option value="dlewis">D. Lewis</option>
-    // <option value="mlewis">M. Lewis</option>
-    // <option value="spezzano">Spezzano</option>
-    // <option value="vaughters">Vaughters</option>
-  };
+  const input_teachers = [
+    "Congleton",
+    "D. Lewis",
+    "M. Lewis",
+    "Spezzano",
+    "Vaughters",
+  ];
+
+  const input_subject = [
+    "Writing",
+    "Science",
+    "Math",
+    "Latin",
+    "French",
+    "Spanish",
+    "Latin",
+    "Art",
+  ];
+
+  const input_course = ["HUM 1", "HUM 2", "American Studies"];
+
+  const tutor_list = [
+    "Avril Cui",
+    "Blake O'Connor",
+    "Christina Xiang",
+    "Cami Hart",
+  ];
+
+  const support_type = ["Homework questions", "Quiz/test preparation", "Other"];
 
   return (
     <div style={{ marginBottom: "30vh" }}>
@@ -34,15 +51,17 @@ export default function Home() {
           input_type={"text"}
           input_text={"Enter name"}
         />
-        <Cell
+        <SelectCell
           text={"Subject you had help with"}
           input_type={"select"}
-          input_text={"Subject"}
+          placeholder={"Choose your subject"}
+          input={input_subject}
         />
-        <Cell
+        <SelectCell
           text={"Course you are in"}
-          input_type={"text"}
-          input_text={"Enter name"}
+          input_type={"select"}
+          placeholder={"Choose your course"}
+          input={input_course}
         />
         <SelectCell
           text={"Your teacher's name"}
@@ -50,18 +69,21 @@ export default function Home() {
           placeholder={"Choose your teacher"}
           input={input_teachers}
         />
-        <Cell
+        <SelectCell
           text={"Your tutor's name"}
-          input_type={"text"}
-          input_text={"Enter name"}
+          input_type={"select"}
+          placeholder={"Choose your tutor"}
+          input={tutor_list}
         />
-        <Cell
+        <SelectCell
           text={"Type of help you received"}
           input_type={"text"}
-          input_text={"Enter name"}
+          placeholder={"Select support type"}
+          input={support_type}
         />
         <Submit />
       </div>
+      <Copyright />
     </div>
   );
 }

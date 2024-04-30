@@ -10,9 +10,9 @@ function SelectCell(props: any) {
           <option value="" disabled selected>
             {props.placeholder}
           </option>
-          {Object.keys(props.input).map((key) => {
-            return <option value={props.input[key]}>{props.input[key]}</option>;
-          })}
+          {props.input.map((item: any, index: any) => (
+            <option value={props.input[index]}>{props.input[index]}</option>
+          ))}
         </select>
       </div>
     </div>

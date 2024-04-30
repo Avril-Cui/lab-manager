@@ -71,16 +71,16 @@
 .copyright_container {
   position: fixed;
   width: 100%;
-  top: 97vh;
-  left: 0px;
+  top: 95vh;
+  left: 1vw;
   height: 5em;
   z-index: 999;
 }
 
 .copyright {
   width: 100vw;
-  height: 5em;
-  display: inline-flex;
   padding-top: 1.75vh;
   padding-bottom: 1.75vh;
+  font-family: "Roboto Flex";
+  color: #000;
 }

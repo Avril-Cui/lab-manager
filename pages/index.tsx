@@ -43,6 +43,7 @@ export default function Home() {
   const [teacher, setTeacher] = useState("");
   const [tutor, setTutor] = useState("");
   const [support, setSupport] = useState("");
+  const [isSubmit, setIsSubmit] = useState(true);
 
   const handleSubmit = (event: any) => {
     event.preventDefault(name, subject, course, teacher, tutor, support);
@@ -54,6 +55,7 @@ export default function Home() {
       tutor: tutor,
       support: support,
     };
+    setIsSubmit(true);
     console.log("submitted");
     console.log(data);
   };
@@ -105,7 +107,7 @@ export default function Home() {
             input={support_type}
             handler={setSupport}
           />
-          <Submit />
+          <Submit isSubmit={isSubmit}/>
         </form>
       </div>
       <Copyright />

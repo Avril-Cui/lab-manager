@@ -68,6 +68,14 @@
   border-radius: 10px;
 }
 
+.submitted {
+  text-align: center;
+  margin-top: 2vh;
+  font-family: "Roboto Flex";
+  color: #fff;
+  font-size: 20px;
+}
+
 .copyright_container {
   position: fixed;
   width: 100%;

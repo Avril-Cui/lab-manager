@@ -1,10 +1,16 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
 
-function Submit() {
+function Submit(props: any) {
   return (
     <div className={styles.center}>
-      <input type="submit" value="Submit!" className={styles.submit} />
+      <input
+        type="submit"
+        value={
+          props.isSubmit ? "Thank you for submitting your feedback!" : "Submit!"
+        }
+        className={styles.submit}
+      />
     </div>
   );
 }

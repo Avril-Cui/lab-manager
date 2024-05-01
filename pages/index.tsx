@@ -5,8 +5,48 @@ import Submit from "@/components/submit";
 import SelectCell from "@/components/select_cell";
 import Copyright from "@/components/copyright";
 import { useState } from "react";
+import { google } from "googleapis";
 
-export default function Home() {
+export async function getServerSideProps({ query }: any) {
+  const auth = await google.auth.getClient({
+    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  });
+  const sheets = google.sheets({ version: "v4", auth });
+  const { id } = query;
+  const range = `teacher_form_types!A1:D32`;
+  const res = await sheets.spreadsheets.values.get({
+    spreadsheetId: process.env.SHEET_ID,
+    range,
+  });
+
+  // let response: { subject: string; course: string; teacher: string; email: string } = {
+  //   subject: "",
+  //   course: "",
+  //   teacher: "",
+  //   email: "",
+  // };
+
+  // if (res.data.values) {
+  //   const [subject, course, teacher, email] = res.data.values[0];
+  //   response = {
+  //     subject,
+  //     course,
+  //     teacher,
+  //     email,
+  //   };
+  // }
+  const response = res.data.values;
+
+  return {
+    props: {
+      response,
+    },
+  };
+}
+
+export default function Home({ response }: any) {
+  console.log("response");
+  console.log(response);
   const input_teachers = [
     "Congleton",
     "D. Lewis",
@@ -15,16 +55,7 @@ export default function Home() {
     "Vaughters",
   ];
 
-  const input_subject = [
-    "Writing",
-    "Science",
-    "Math",
-    "Latin",
-    "French",
-    "Spanish",
-    "Latin",
-    "Art",
-  ];
+  const input_subject = ["Writing", "Math"];
 
   const input_course = ["HUM 1", "HUM 2", "American Studies"];
 

@@ -10,7 +10,7 @@
 .header {
   width: 100vw;
   background-color: #f1e8b8;
-  height: 3.5em;
+  height: 4em;
   display: inline-flex;
   padding-top: 1.75vh;
   padding-bottom: 1.75vh;
@@ -31,12 +31,14 @@
 
 @media (max-width: 600px) {
   .header {
-    height: 4.25em;
+    height: 5em;
+    margin-top: -2.5em;
   }
 
   .logo {
     width: 2.25em;
     height: 2.5em;
+    margin-top: 2.5em;
   }
 
   .title {
@@ -44,7 +46,7 @@
     font-size: 22px;
     margin-left: 0.5em;
     text-align: center;
-    margin-top: 0.25em;
+    margin-top: 2.15em;
   }
 }
 

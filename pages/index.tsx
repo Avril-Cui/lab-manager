@@ -44,20 +44,39 @@ export default function Home() {
   const [tutor, setTutor] = useState("");
   const [support, setSupport] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
+  const [submissionData, setSubmissionData] = useState({
+    name: name,
+    subject: subject,
+    course: course,
+    teacher: teacher,
+    tutor: tutor,
+    support: support,
+  });
 
   const handleSubmit = (event: any) => {
     event.preventDefault(name, subject, course, teacher, tutor, support);
-    const data = {
+    setSubmissionData({
       name: name,
       subject: subject,
       course: course,
       teacher: teacher,
       tutor: tutor,
       support: support,
-    };
+    });
+    console.log("data");
     setIsSubmit(true);
-    console.log("submitted");
-    console.log(data);
+    console.log(submissionData);
+    fetch("/api/email_sender", {
+      method: "POST",
+      body: JSON.stringify(submissionData),
+    })
+      .then(() => {
+        console.log("submitted");
+        // console.log(submissionData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -107,7 +126,7 @@ export default function Home() {
             input={support_type}
             handler={setSupport}
           />
-          <Submit isSubmit={isSubmit}/>
+          <Submit isSubmit={isSubmit} />
         </form>
       </div>
       <Copyright />

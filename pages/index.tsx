@@ -85,7 +85,7 @@ export default function Home({ response, tutor }: any) {
   };
 
   return (
-    <div style={{ marginBottom: "30vh" }}>
+    <div className={styles.container}>
       <Header />
       <div style={{ marginTop: "8em" }}>
         <p className={styles.title}>Welcome to academic tutoring lab!</p>

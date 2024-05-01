@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+.container {
+  margin-bottom: 30vh;
+}
+
 .title {
   font-size: 34px;
   color: #fff;
@@ -49,7 +53,6 @@
   background-color: #fef3ba;
   border-radius: 7px;
   border: 1px solid #333333;
-  /* color: #707070; */
 }
 
 .black_text {
@@ -91,4 +94,51 @@
   padding-bottom: 1.75vh;
   font-family: "Roboto Flex";
   color: #000;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 30px;
+    margin-top: -1em;
+    margin-bottom: 1em;
+  }
+
+  .cell_bg {
+    background-color: #f7f3db;
+    border-radius: 10px;
+    width: 22em;
+    height: 9em;
+    padding-top: 1.5em;
+    padding-left: 1.5em;
+    margin-bottom: 1.25em;
+  }
+
+  .question {
+    font-family: "Roboto Flex";
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .input {
+    height: 2.75em;
+    width: 12em;
+    font-size: 18px;
+  }
+
+  .select {
+    height: 2.75em;
+    width: 12em;
+    font-size: 18px;
+  }
+
+  .submit {
+    font-size: 20px;
+    width: 17.5em;
+    height: 3em;
+  }
+
+  .container {
+    margin-bottom: 5em;
+  }
+  
 }

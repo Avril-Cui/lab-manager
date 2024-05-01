@@ -29,6 +29,25 @@
   margin-top: 1.25vh;
 }
 
+@media (max-width: 600px) {
+  .header {
+    height: 4.25em;
+  }
+
+  .logo {
+    width: 2.25em;
+    height: 2.5em;
+  }
+
+  .title {
+    width: 75vw;
+    font-size: 22px;
+    margin-left: 0.5em;
+    text-align: center;
+    margin-top: 0.25em;
+  }
+}
+
 .manu_selection {
   display: inline-flex;
   margin-left: 30vw;

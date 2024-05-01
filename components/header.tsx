@@ -7,9 +7,16 @@ function Header() {
     <div className={styles.fix}>
       <div className={styles.header}>
         <div className={styles.image}>
-          <Image src="/logo.png" alt="logo" width={46} height={52} />
+          <Image
+            src="/logo.png"
+            alt="logo"
+            // style={{ width: "10vw", height: "5vh" }}
+            width={46}
+            height={52}
+            className={styles.logo}
+          />
         </div>
-        <p className={styles.title}>St. George's School Lab Tutoring</p>
+        <p className={styles.title}>St. George's Lab Tutoring</p>
         {/* <div className={styles.manu_selection}>
           <p className={styles.types}>Lab Sign In</p>
           <p className={styles.types}>Request Tutor</p>

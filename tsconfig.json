@@ -16,6 +16,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/index.js", "components/select_teacher.js"],
   "exclude": ["node_modules"]
 }

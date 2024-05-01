@@ -4,11 +4,12 @@ import Cell from "@/components/cell";
 import Submit from "@/components/submit";
 import SelectCell from "@/components/select_cell";
 import Copyright from "@/components/copyright";
-import { useState } from "react";
-import { google } from "googleapis";
 import SelectCourse from "@/components/select_course";
 import SelectTeacher from "@/components/select_teacher";
 import SelectTutor from "@/components/select_tutor";
+
+import { useState } from "react";
+import { google } from "googleapis";
 
 export async function getServerSideProps({ query }: any) {
   const auth = await google.auth.getClient({
@@ -39,14 +40,6 @@ export async function getServerSideProps({ query }: any) {
 }
 
 export default function Home({ response, tutor }: any) {
-  const input_teachers = [
-    "Congleton",
-    "D. Lewis",
-    "M. Lewis",
-    "Spezzano",
-    "Vaughters",
-  ];
-
   const input_subject = ["Writing", "Math"];
 
   const support_type = [
@@ -67,6 +60,7 @@ export default function Home({ response, tutor }: any) {
     teacher: "",
     tutor: "",
     support: "",
+    teacher_email: "",
   });
 
   const handleSubmit = (event: any) => {
@@ -130,11 +124,11 @@ export default function Home({ response, tutor }: any) {
             text={"Your teacher's name"}
             input_type={"text"}
             placeholder={"Choose your teacher"}
-            input={input_teachers}
-            handler={(new_value: any) => {
+            handler={(new_value: any, teacher_email: any) => {
               setSubmissionData({
                 ...submissionData,
                 teacher: new_value,
+                teacher_email: teacher_email,
               });
             }}
             data={response}

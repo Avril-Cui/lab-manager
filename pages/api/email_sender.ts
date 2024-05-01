@@ -6,8 +6,8 @@ async function sendEmail(data: any) {
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: "Avril_Cui@stgeorges.edu",
-        pass: "Aspect0717",
+        user: "", // horton center email
+        pass: "", // password
       },
     });
 

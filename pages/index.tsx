@@ -1,12 +1,12 @@
-import Header from "@/components/header";
-import styles from "@/styles/Home.module.css";
-import Cell from "@/components/cell";
-import Submit from "@/components/submit";
-import SelectCell from "@/components/select_cell";
-import Copyright from "@/components/copyright";
-import SelectCourse from "@/components/select_course";
-import SelectTeacher from "@/components/select_teacher";
-import SelectTutor from "@/components/select_tutor";
+import Header from "../components/header";
+import styles from "../styles/Home.module.css";
+import Cell from "../components/cell";
+import Submit from "../components/submit";
+import SelectCell from "../components/select_cell";
+import Copyright from "../components/copyright";
+import SelectCourse from "../components/select_course";
+import SelectTeacher from "../components/select_teacher";
+import SelectTutor from "../components/select_tutor";
 
 import { useState } from "react";
 import { google } from "googleapis";

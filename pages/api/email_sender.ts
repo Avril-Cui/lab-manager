@@ -13,7 +13,8 @@ async function sendEmail(data: any) {
 
     const mailOptions = {
       from: "avril_cui@stgeorges.edu",
-      to: data.teacher_email,
+      to: "avril_cui@stgeorges.edu",
+      // data.teacher_email,
       subject: `${data.subject} Tutoring Feedback from ${data.name}`,
       text: `
       Hi ${data.teacher},

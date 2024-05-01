@@ -46,7 +46,7 @@
 
 .select {
   height: 6vh;
-  width: 15vw;
+  width: 20vw;
   margin-top: 2vh;
   font-size: 20px;
   padding-left: 1vh;
@@ -127,7 +127,7 @@
 
   .select {
     height: 2.75em;
-    width: 12em;
+    width: 15em;
     font-size: 18px;
   }
 
@@ -140,5 +140,4 @@
   .container {
     margin-bottom: 5em;
   }
-  
 }

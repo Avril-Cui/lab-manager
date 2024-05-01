@@ -15,13 +15,14 @@ async function sendEmail(data: any) {
       from: "avril_cui@stgeorges.edu",
       to: "avrilcui17@gmail.com", //data.teacher_email
       subject: `${data.subject} Tutoring Feedback from ${data.name}`,
-      text: "HI",
-      // `Hi ${data.teacher_name},\n\n
-      //     Student ${data.name} received help from ${data.subject} lab today.
-      //     They worked with tutor ${data.tutor} on ${data.support}.
+      text: `
+      Hi ${data.teacher},
 
-      //     Best wishes,
-      //     Horton Center `,
+          Student ${data.name} received help from ${data.subject} lab today.
+          They worked with tutor ${data.tutor} on ${data.support}.
+
+      Best wishes,
+      Horton Center `,
     };
 
     const info = await transporter.sendMail(mailOptions);

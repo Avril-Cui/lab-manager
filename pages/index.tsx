@@ -6,6 +6,9 @@ import SelectCell from "@/components/select_cell";
 import Copyright from "@/components/copyright";
 import { useState } from "react";
 import { google } from "googleapis";
+import SelectCourse from "@/components/select_course";
+import SelectTeacher from "@/components/select_teacher";
+import SelectTutor from "@/components/select_tutor";
 
 export async function getServerSideProps({ query }: any) {
   const auth = await google.auth.getClient({
@@ -19,34 +22,23 @@ export async function getServerSideProps({ query }: any) {
     range,
   });
 
-  // let response: { subject: string; course: string; teacher: string; email: string } = {
-  //   subject: "",
-  //   course: "",
-  //   teacher: "",
-  //   email: "",
-  // };
+  const res2 = await sheets.spreadsheets.values.get({
+    spreadsheetId: process.env.SHEET_ID,
+    range: "tutor_name!A1:B39",
+  });
 
-  // if (res.data.values) {
-  //   const [subject, course, teacher, email] = res.data.values[0];
-  //   response = {
-  //     subject,
-  //     course,
-  //     teacher,
-  //     email,
-  //   };
-  // }
   const response = res.data.values;
+  const tutor = res2.data.values;
 
   return {
     props: {
       response,
+      tutor,
     },
   };
 }
 
-export default function Home({ response }: any) {
-  console.log("response");
-  console.log(response);
+export default function Home({ response, tutor }: any) {
   const input_teachers = [
     "Congleton",
     "D. Lewis",
@@ -57,16 +49,15 @@ export default function Home({ response }: any) {
 
   const input_subject = ["Writing", "Math"];
 
-  const input_course = ["HUM 1", "HUM 2", "American Studies"];
-
-  const tutor_list = [
-    "Avril Cui",
-    "Blake O'Connor",
-    "Christina Xiang",
-    "Cami Hart",
+  const support_type = [
+    "homework questions",
+    "quiz/test preparation",
+    "essay revision",
+    "essay idea brainstorming",
+    "thesis statement",
+    "research",
+    "citation",
   ];
-
-  const support_type = ["Homework questions", "Quiz/test preparation", "Other"];
 
   const [isSubmit, setIsSubmit] = useState(false);
   const [submissionData, setSubmissionData] = useState({
@@ -78,20 +69,15 @@ export default function Home({ response }: any) {
     support: "",
   });
 
-  // console.log(submissionData);
-
   const handleSubmit = (event: any) => {
     event.preventDefault(submissionData);
-    console.log("data");
     setIsSubmit(true);
-    console.log(submissionData);
     fetch("/api/email_sender", {
       method: "POST",
       body: JSON.stringify(submissionData),
     })
       .then(() => {
         console.log("submitted");
-        // console.log(submissionData);
       })
       .catch((err) => {
         console.log(err);
@@ -127,19 +113,20 @@ export default function Home({ response }: any) {
               });
             }}
           />
-          <SelectCell
+          <SelectCourse
             text={"Course you are in"}
             input_type={"select"}
             placeholder={"Choose your course"}
-            input={input_course}
             handler={(new_value: any) => {
               setSubmissionData({
                 ...submissionData,
                 course: new_value,
               });
             }}
+            data={response}
+            subject={submissionData.subject.toLowerCase()}
           />
-          <SelectCell
+          <SelectTeacher
             text={"Your teacher's name"}
             input_type={"text"}
             placeholder={"Choose your teacher"}
@@ -150,18 +137,21 @@ export default function Home({ response }: any) {
                 teacher: new_value,
               });
             }}
+            data={response}
+            course={submissionData.course}
           />
-          <SelectCell
+          <SelectTutor
             text={"Your tutor's name"}
             input_type={"select"}
             placeholder={"Choose your tutor"}
-            input={tutor_list}
             handler={(new_value: any) => {
               setSubmissionData({
                 ...submissionData,
                 tutor: new_value,
               });
             }}
+            data={tutor}
+            subject={submissionData.subject.toLowerCase()}
           />
           <SelectCell
             text={"Type of help you received"}

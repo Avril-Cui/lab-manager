@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
 
-function SelectCourse(props: any) {
+function SelectTeacher(props: any) {
   const handleChange = (event: any) => {
     props.handler(event.target.value);
   };
-  const uniqueValues = new Set();
 
   return (
     <div className={styles.center}>
@@ -15,21 +14,15 @@ function SelectCourse(props: any) {
           <option value="" disabled selected>
             {props.placeholder}
           </option>
-          {props.data.map((item: any, index: any) => {
-            if (item[0] == props.subject && !uniqueValues.has(item[1])) {
-              uniqueValues.add(item[1]);
-              return (
-                <option key={index} value={item[1]}>
-                  {item[1]}
-                </option>
-              );
-            }
-            return null;
-          })}
+          {props.data.map((item: any, index: any) =>
+            item[1] == props.course ? (
+              <option value={item[2]}>{item[2]}</option>
+            ) : null
+          )}
         </select>
       </div>
     </div>
   );
 }
 
-export default SelectCourse;
+export default SelectTeacher;

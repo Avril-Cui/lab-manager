@@ -14,13 +14,12 @@ async function sendEmail(data: any) {
     const mailOptions = {
       from: "avril_cui@stgeorges.edu",
       to: "avrilcui17@gmail.com", //data.teacher_email
-      subject: "HELLO",
-      // `${data.subject} Tutoring Feedback from ${data.name}`,
-      text: "HI"
+      subject: `${data.subject} Tutoring Feedback from ${data.name}`,
+      text: "HI",
       // `Hi ${data.teacher_name},\n\n
       //     Student ${data.name} received help from ${data.subject} lab today.
       //     They worked with tutor ${data.tutor} on ${data.support}.
-          
+
       //     Best wishes,
       //     Horton Center `,
     };
@@ -36,9 +35,9 @@ export default function email_sender(
   res: NextApiResponse
 ) {
   try {
-    console.log(req.body.data)
-    sendEmail(req.body.data);
-    // console.log("email submitted");
+    const data = JSON.parse(req.body);
+    sendEmail(data);
+    console.log("email submitted");
     return res.status(200).json({ message: `email submitted` });
   } catch (err) {
     console.log(err);

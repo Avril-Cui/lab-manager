@@ -3,8 +3,8 @@ import styles from "../styles/Home.module.css";
 
 function SelectCell(props: any) {
   const handleChange = (event: any) => {
-    props.handler(event.target.value.toLowerCase());
-  }
+    props.handler(event.target.value);
+  };
 
   return (
     <div className={styles.center}>

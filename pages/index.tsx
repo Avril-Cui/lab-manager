@@ -37,32 +37,20 @@ export default function Home() {
 
   const support_type = ["Homework questions", "Quiz/test preparation", "Other"];
 
-  const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
-  const [course, setCourse] = useState("");
-  const [teacher, setTeacher] = useState("");
-  const [tutor, setTutor] = useState("");
-  const [support, setSupport] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
   const [submissionData, setSubmissionData] = useState({
-    name: name,
-    subject: subject,
-    course: course,
-    teacher: teacher,
-    tutor: tutor,
-    support: support,
+    name: "",
+    subject: "",
+    course: "",
+    teacher: "",
+    tutor: "",
+    support: "",
   });
 
+  // console.log(submissionData);
+
   const handleSubmit = (event: any) => {
-    event.preventDefault(name, subject, course, teacher, tutor, support);
-    setSubmissionData({
-      name: name,
-      subject: subject,
-      course: course,
-      teacher: teacher,
-      tutor: tutor,
-      support: support,
-    });
+    event.preventDefault(submissionData);
     console.log("data");
     setIsSubmit(true);
     console.log(submissionData);
@@ -89,42 +77,72 @@ export default function Home() {
             text={"Your Full Name"}
             input_type={"text"}
             input_text={"Enter name"}
-            handler={setName}
+            handler={(new_value: any) => {
+              setSubmissionData({
+                ...submissionData,
+                name: new_value,
+              });
+            }}
           />
           <SelectCell
             text={"Subject you had help with"}
             input_type={"select"}
             placeholder={"Choose your subject"}
             input={input_subject}
-            handler={setSubject}
+            handler={(new_value: any) => {
+              setSubmissionData({
+                ...submissionData,
+                subject: new_value,
+              });
+            }}
           />
           <SelectCell
             text={"Course you are in"}
             input_type={"select"}
             placeholder={"Choose your course"}
             input={input_course}
-            handler={setCourse}
+            handler={(new_value: any) => {
+              setSubmissionData({
+                ...submissionData,
+                course: new_value,
+              });
+            }}
           />
           <SelectCell
             text={"Your teacher's name"}
             input_type={"text"}
             placeholder={"Choose your teacher"}
             input={input_teachers}
-            handler={setTeacher}
+            handler={(new_value: any) => {
+              setSubmissionData({
+                ...submissionData,
+                teacher: new_value,
+              });
+            }}
           />
           <SelectCell
             text={"Your tutor's name"}
             input_type={"select"}
             placeholder={"Choose your tutor"}
             input={tutor_list}
-            handler={setTutor}
+            handler={(new_value: any) => {
+              setSubmissionData({
+                ...submissionData,
+                tutor: new_value,
+              });
+            }}
           />
           <SelectCell
             text={"Type of help you received"}
             input_type={"text"}
             placeholder={"Select support type"}
             input={support_type}
-            handler={setSupport}
+            handler={(new_value: any) => {
+              setSubmissionData({
+                ...submissionData,
+                support: new_value,
+              });
+            }}
           />
           <Submit isSubmit={isSubmit} />
         </form>

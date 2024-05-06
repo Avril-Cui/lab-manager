@@ -1,2 +1,0 @@
-1. Make a submitted page after submission
-2. Adjust style for both mobile and computer versions

@@ -106,6 +106,28 @@
   z-index: 999;
 }
 
+.submitted_box{
+  background-color: #f7f7f7;
+  width: 42vw;
+  height: 20vh;
+  margin-top: 20vh;
+  border-radius: 10px;
+  border-top: 20px solid #ffe047;
+  padding: 2em;
+}
+
+.response {
+  font-size: 40px;
+  font-family: 'Roboto Flex';
+  margin-bottom: 1em;
+}
+
+.thank_you{
+  font-size: 20px;
+  font-family: 'Roboto Flex';
+
+}
+
 @media (max-width: 600px) {
   .title {
     font-size: 30px;
@@ -153,5 +175,25 @@
 
   .container {
     margin-bottom: 5em;
+  }
+
+  .submitted_box{
+    width: 20em;
+    height: 7em;
+    margin-top: 8em;
+    border-radius: 10px;
+    border-top: 15px solid #ffe047;
+    padding: 1em;
+  }
+  
+  .response {
+    font-size: 28px;
+    font-family: 'Roboto Flex';
+    margin-bottom: 0.5em;
+  }
+  
+  .thank_you{
+    font-size: 14px;
+    font-family: 'Roboto Flex';
   }
 }

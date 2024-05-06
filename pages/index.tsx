@@ -7,9 +7,11 @@ import Copyright from "../components/copyright";
 import SelectCourse from "../components/select_course";
 import SelectTeacher from "../components/select_teacher";
 import SelectTutor from "../components/select_tutor";
+import Submitted from "@/components/submitted";
+
 import { useState } from "react";
 import { google } from "googleapis";
-import { JWT } from 'google-auth-library';
+import { JWT } from "google-auth-library";
 
 export async function getServerSideProps({ query }: any) {
   const credentials = {
@@ -102,88 +104,93 @@ export default function Home({ response, tutor }: any) {
   return (
     <div className={styles.container}>
       <Header />
-      <div style={{ marginTop: "8em" }}>
-        <p className={styles.title}>Welcome to academic tutoring lab!</p>
-        {/* <p className={styles.copyright}>© Website made by Avril Cui</p> */}
-        <form onSubmit={handleSubmit}>
-          <Cell
-            text={"Your Full Name"}
-            input_type={"text"}
-            input_text={"Enter name"}
-            handler={(new_value: any) => {
-              setSubmissionData({
-                ...submissionData,
-                name: new_value,
-              });
-            }}
-          />
-          <SelectCell
-            text={"Subject you had help with"}
-            input_type={"select"}
-            placeholder={"Choose your subject"}
-            input={input_subject}
-            handler={(new_value: any) => {
-              setSubmissionData({
-                ...submissionData,
-                subject: new_value,
-              });
-            }}
-          />
-          <SelectCourse
-            text={"Course you are in"}
-            input_type={"select"}
-            placeholder={"Choose your course"}
-            handler={(new_value: any) => {
-              setSubmissionData({
-                ...submissionData,
-                course: new_value,
-              });
-            }}
-            data={response}
-            subject={submissionData.subject.toLowerCase()}
-          />
-          <SelectTeacher
-            text={"Your teacher's name"}
-            input_type={"text"}
-            placeholder={"Choose your teacher"}
-            handler={(new_value: any, teacher_email: any) => {
-              setSubmissionData({
-                ...submissionData,
-                teacher: new_value,
-                teacher_email: teacher_email,
-              });
-            }}
-            data={response}
-            course={submissionData.course}
-          />
-          <SelectTutor
-            text={"Your tutor's name"}
-            input_type={"select"}
-            placeholder={"Choose your tutor"}
-            handler={(new_value: any) => {
-              setSubmissionData({
-                ...submissionData,
-                tutor: new_value,
-              });
-            }}
-            data={tutor}
-            subject={submissionData.subject.toLowerCase()}
-          />
-          <SelectCell
-            text={"Type of help you received"}
-            input_type={"text"}
-            placeholder={"Select support type"}
-            input={support_type}
-            handler={(new_value: any) => {
-              setSubmissionData({
-                ...submissionData,
-                support: new_value,
-              });
-            }}
-          />
-          <Submit isSubmit={isSubmit} />
-        </form>
-      </div>
+      {isSubmit ? (
+        <Submitted />
+      ) : (
+        <div style={{ marginTop: "8em" }}>
+          <p className={styles.title}>Welcome to academic tutoring lab!</p>
+          {/* <p className={styles.copyright}>© Website made by Avril Cui</p> */}
+          <form onSubmit={handleSubmit}>
+            <Cell
+              text={"Your Full Name"}
+              input_type={"text"}
+              input_text={"Enter name"}
+              handler={(new_value: any) => {
+                setSubmissionData({
+                  ...submissionData,
+                  name: new_value,
+                });
+              }}
+            />
+            <SelectCell
+              text={"Subject you had help with"}
+              input_type={"select"}
+              placeholder={"Choose your subject"}
+              input={input_subject}
+              handler={(new_value: any) => {
+                setSubmissionData({
+                  ...submissionData,
+                  subject: new_value,
+                });
+              }}
+            />
+            <SelectCourse
+              text={"Course you are in"}
+              input_type={"select"}
+              placeholder={"Choose your course"}
+              handler={(new_value: any) => {
+                setSubmissionData({
+                  ...submissionData,
+                  course: new_value,
+                });
+              }}
+              data={response}
+              subject={submissionData.subject.toLowerCase()}
+            />
+            <SelectTeacher
+              text={"Your teacher's name"}
+              input_type={"text"}
+              placeholder={"Choose your teacher"}
+              handler={(new_value: any, teacher_email: any) => {
+                setSubmissionData({
+                  ...submissionData,
+                  teacher: new_value,
+                  teacher_email: teacher_email,
+                });
+              }}
+              data={response}
+              course={submissionData.course}
+            />
+            <SelectTutor
+              text={"Your tutor's name"}
+              input_type={"select"}
+              placeholder={"Choose your tutor"}
+              handler={(new_value: any) => {
+                setSubmissionData({
+                  ...submissionData,
+                  tutor: new_value,
+                });
+              }}
+              data={tutor}
+              subject={submissionData.subject.toLowerCase()}
+            />
+            <SelectCell
+              text={"Type of help you received"}
+              input_type={"text"}
+              placeholder={"Select support type"}
+              input={support_type}
+              handler={(new_value: any) => {
+                setSubmissionData({
+                  ...submissionData,
+                  support: new_value,
+                });
+              }}
+            />
+            <Submit isSubmit={isSubmit} />
+          </form>
+        </div>
+      )}
+
       <Copyright />
     </div>
   );

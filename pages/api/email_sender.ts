@@ -31,13 +31,13 @@ async function sendEmail(data: any) {
     console.error("Error occurred:", error);
   }
 }
-export default function email_sender(
+export default async function email_sender(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
     const data = JSON.parse(req.body);
-    sendEmail(data);
+    await sendEmail(data);
     console.log("email submitted");
     return res.status(200).json({ message: `submitted` });
   } catch (err) {

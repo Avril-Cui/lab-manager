@@ -2,7 +2,6 @@ const nodemailer = require("nodemailer");
 import type { NextApiRequest, NextApiResponse } from "next";
 
 async function sendEmail(data: any) {
-  console.log(data)
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -40,7 +39,7 @@ export default function email_sender(
     const data = JSON.parse(req.body);
     sendEmail(data);
     console.log("email submitted");
-    return res.status(200).json({ message: `email submitted` });
+    return res.status(200).json({ message: `submitted` });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ message: `Couldn't submit email`, err });

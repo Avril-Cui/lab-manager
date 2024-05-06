@@ -36,9 +36,6 @@ export async function getServerSideProps({ query }: any) {
 
   await auth.authorize();
 
-  // const auth = await google.auth.getClient({
-  //   scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
-  // });
   const sheets = google.sheets({ version: "v4", auth });
   const { id } = query;
   const range = `teacher_form_types!A1:D32`;

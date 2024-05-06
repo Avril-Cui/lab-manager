@@ -7,7 +7,7 @@ function Submit(props: any) {
       <input
         type="submit"
         value={
-          props.isSubmit ? "Thank you for submitting your feedback!" : "Submit!"
+          props.isSubmit ? "Thanks for submitting!" : "Submit!"
         }
         className={styles.submit}
       />

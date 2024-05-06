@@ -14,7 +14,20 @@
   font-family: "Roboto Flex";
   text-align: center;
   margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-bottom: 1vh;
+}
+
+.copyright {
+  display: table;
+  margin: 0 auto;
+  font-family: "Roboto Flex";
+  /* width: 100vw;
+  padding-top: 1.75vh;
+  padding-bottom: 1.75vh;
+  font-family: "Roboto Flex";
+  color: #000; */
+  margin-bottom: 4vh;
+  color: #515151;
 }
 
 .cell_bg {
@@ -88,25 +101,21 @@
   z-index: 999;
 }
 
-.copyright {
-  width: 100vw;
-  padding-top: 1.75vh;
-  padding-bottom: 1.75vh;
-  font-family: "Roboto Flex";
-  color: #000;
-}
-
 @media (max-width: 600px) {
   .title {
     font-size: 30px;
     margin-top: -1em;
+    margin-bottom: 0.5em;
+  }
+
+  .copyright {
     margin-bottom: 1em;
   }
 
   .cell_bg {
     background-color: #f7f3db;
     border-radius: 10px;
-    width: 22em;
+    width: 20em;
     height: 9em;
     padding-top: 1.5em;
     padding-left: 1.5em;

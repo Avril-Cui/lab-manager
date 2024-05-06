@@ -107,6 +107,7 @@ export default function Home({ response, tutor }: any) {
       <Header />
       <div style={{ marginTop: "8em" }}>
         <p className={styles.title}>Welcome to academic tutoring lab!</p>
+        <p className={styles.copyright}>© Website made by Avril Cui</p>
         <form onSubmit={handleSubmit}>
           <Cell
             text={"Your Full Name"}
@@ -186,7 +187,7 @@ export default function Home({ response, tutor }: any) {
           <Submit isSubmit={isSubmit} />
         </form>
       </div>
-      <Copyright />
+      {/* <Copyright /> */}
     </div>
   );
 }

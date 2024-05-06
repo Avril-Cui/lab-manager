@@ -2,25 +2,25 @@ const nodemailer = require("nodemailer");
 import type { NextApiRequest, NextApiResponse } from "next";
 
 async function sendEmail(data: any) {
+  console.log(data)
   try {
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      service: "gmail",
       auth: {
-        user: "", // horton center email
-        pass: "", // password
+        user: "sglabsandtutoring@gmail.com", // horton center email
+        pass: "ildc xlqx kayd ahmt", // password
       },
     });
 
     const mailOptions = {
-      from: "avril_cui@stgeorges.edu",
-      to: "avrilcui17@gmail.com",
-      // change to data.teacher_email,
+      from: "sglabsandtutoring@gmail.com",
+      to: data.teacher_email,
       subject: `${data.subject} Tutoring Feedback from ${data.name}`,
       text: `
       Hi ${data.teacher},
 
-          Student ${data.name} received help from ${data.subject} lab today.
-          They worked with tutor ${data.tutor} on ${data.support}.
+          Your student, ${data.name}, received help from ${data.subject} lab today.
+          They worked with tutor ${data.tutor} on: ${data.support}.
 
       Best wishes,
       Horton Center `,

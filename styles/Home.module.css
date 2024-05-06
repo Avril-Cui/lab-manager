@@ -14,20 +14,20 @@
   font-family: "Roboto Flex";
   text-align: center;
   margin-top: 5vh;
-  margin-bottom: 1vh;
+  margin-bottom: 5vh;
 }
 
 .copyright {
-  display: table;
+  /* display: table;
   margin: 0 auto;
-  font-family: "Roboto Flex";
-  /* width: 100vw;
+  font-family: "Roboto Flex"; */
+  width: 100vw;
   padding-top: 1.75vh;
   padding-bottom: 1.75vh;
   font-family: "Roboto Flex";
-  color: #000; */
-  margin-bottom: 4vh;
-  color: #515151;
+  color: #000;
+  /* margin-bottom: 4vh;
+  color: #515151; */
 }
 
 .cell_bg {
@@ -84,6 +84,11 @@
   border-radius: 10px;
 }
 
+
+.submit:hover {
+  cursor: pointer;
+}
+
 .submitted {
   text-align: center;
   margin-top: 2vh;
@@ -105,7 +110,7 @@
   .title {
     font-size: 30px;
     margin-top: -1em;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
 
   .copyright {

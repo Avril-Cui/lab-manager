@@ -73,6 +73,7 @@ export default function Home({ response, tutor }: any) {
     "thesis statement",
     "research",
     "citation",
+    "other"
   ];
 
   const [isSubmit, setIsSubmit] = useState(false);
@@ -190,7 +191,6 @@ export default function Home({ response, tutor }: any) {
           </form>
         </div>
       )}
-
       <Copyright />
     </div>
   );

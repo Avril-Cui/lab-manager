@@ -6,13 +6,13 @@ async function sendEmail(data: any) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "sglabsandtutoring@gmail.com", // horton center email
+        user: "", // horton center email
         pass: "ildc xlqx kayd ahmt", // password
       },
     });
 
     const mailOptions = {
-      from: "sglabsandtutoring@gmail.com",
+      from: "@gmail.com",
       to: data.teacher_email,
       subject: `${data.subject} Tutoring Feedback from ${data.name}`,
       text: `
